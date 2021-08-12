@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import thai.daos.BookDAO;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.HOME;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.HOME;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

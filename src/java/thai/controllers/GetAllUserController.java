@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import thai.daos.UserDAO;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.ADMIN_MANAGE_USER_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.ADMIN_MANAGE_USER_PAGE;
 
 /**
  *

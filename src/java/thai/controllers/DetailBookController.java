@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import thai.daos.BookDAO;
 import thai.dtos.BookObj;
-import static thai.utils.Constant.DETAIL_PAGE;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.DETAIL_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

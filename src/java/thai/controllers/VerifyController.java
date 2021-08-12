@@ -1,59 +1,53 @@
-package thai.controllers;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package thai.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import thai.daos.BookDAO;
-import thai.daos.OrderDAO;
-import thai.dtos.BookObj;
-import thai.dtos.OrderDetailObj;
-import thai.dtos.OrderObj;
-import static thai.utils.Constants.ERROR;
-import static thai.utils.Constants.HISTORY_DETAIL_PAGE;
-import static thai.utils.Constants.LOGGER;
+import javax.servlet.http.HttpSession;
+import thai.daos.UserDAO;
+import thai.dtos.UserObj;
+import static thai.utils.Constants.HOME;
 
 /**
  *
  * @author ASUS
  */
-@WebServlet(urlPatterns = {"/GetOrderDetailUserController"})
-public class GetOrderDetailUserController extends HttpServlet {
+@WebServlet(name = "VerifyController", urlPatterns = {"/VerifyController"})
+public class VerifyController extends HttpServlet {
 
-   
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        request.setCharacterEncoding("utf-8");
+        String url = "verify.jsp";
         try {
-            String orderID = request.getParameter("orderID");
-            OrderDAO dao = new OrderDAO();
-            List<OrderDetailObj> orderDetailList = dao.getOrderDetailByOrderID(orderID);
-            
-            BookDAO bookDao = new BookDAO();
-            List<BookObj> bookList = new ArrayList<>();
-            for (OrderDetailObj orderDetailObj : orderDetailList) {
-                BookObj book = bookDao.getBookById(orderDetailObj.getBookID() + "");
-                book.setBookQuantity(orderDetailObj.getAmount());
-                bookList.add(book);
+            HttpSession sesson = request.getSession();
+            UserObj user = (UserObj) sesson.getAttribute("user");
+            String code = request.getParameter("txtVerification");
+            System.out.println("sai");
+            if (code.equals(user.getVerificationCode())) {
+                System.out.println("code: " + code);
+                url = HOME;
+                user.setUserStatus("active");
+                UserDAO dao = new UserDAO();
+                dao.updateAccount(user);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+            } else {
+                request.setAttribute("Error", "Your verification code entered is incorrect");
             }
-            OrderObj order = dao.getOrderByID(orderID);
-            request.setAttribute("listBook", bookList);
-            request.setAttribute("order", order);
-            url = HISTORY_DETAIL_PAGE;
         } catch (Exception e) {
-            LOGGER.info("ERROR at GetOrderDetailUserController:" + e.getMessage());
-            e.printStackTrace();
+            log("ERROR at VerifyController: " + e.getMessage());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

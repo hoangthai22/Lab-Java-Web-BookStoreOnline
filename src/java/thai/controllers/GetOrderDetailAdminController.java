@@ -18,9 +18,9 @@ import thai.daos.OrderDAO;
 import thai.dtos.BookObj;
 import thai.dtos.OrderDetailObj;
 import thai.dtos.OrderObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.ADMIN_ORDER_DETAIL_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.ADMIN_ORDER_DETAIL_PAGE;
 
 /**
  *

@@ -15,7 +15,7 @@ import java.util.List;
 import javax.naming.NamingException;
 import thai.dtos.OrderDetailObj;
 import thai.dtos.OrderObj;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.LOGGER;
 import thai.utils.DBUtil;
 
 /**

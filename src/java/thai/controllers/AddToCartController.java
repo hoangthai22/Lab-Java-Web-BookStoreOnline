@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 import thai.daos.BookDAO;
 import thai.dtos.BookObj;
 import thai.dtos.CartObj;
-import static thai.utils.Constant.CART_PAGE;
-import static thai.utils.Constant.DETAIL;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.HOME;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.CART_PAGE;
+import static thai.utils.Constants.DETAIL;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.HOME;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

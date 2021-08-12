@@ -70,9 +70,9 @@
                         </a>
                         <div class="nav-item dropdown">
                             <a href="#" style="color: white" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png" style="    width: 25px;" class="avatar" alt="Avatar"> 
-                                ${not empty sessionScope.user ? sessionScope.user.userFullName : 'Login/Register'} <b class="caret"></b></a>
+                                ${not empty sessionScope.user && sessionScope.user.userStatus == 'active' ? sessionScope.user.userFullName : 'Login/Register'} <b class="caret"></b></a>
                             <div class="dropdown-menu">
-                                <c:if test="${not empty sessionScope.user}">
+                                <c:if test="${not empty sessionScope.user && sessionScope.user.userStatus == 'active'}">
                                     <a href="MainController?action=ShowHistory" class="dropdown-item"><i class="fa fa-calendar-o"></i> My order</a>
                                     <a href="MainController?action=ViewMyDiscount" class="dropdown-item"><i class="fa fa-sliders"></i> My discount code</a>
                                     <div class="divider dropdown-divider"></div>

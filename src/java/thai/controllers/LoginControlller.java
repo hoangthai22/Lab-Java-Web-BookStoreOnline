@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import thai.daos.UserDAO;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.HOME;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.LOGIN_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.HOME;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.LOGIN_PAGE;
 
 /**
  *
@@ -32,11 +32,19 @@ public class LoginControlller extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String url = ERROR;
         try {
+            String verify = request.getParameter("g-recaptcha-response");
             String txtUsername = request.getParameter("txtUsername");
             String txtPassword = request.getParameter("txtPassword");
             UserDAO userDao = new UserDAO();
             UserObj user = userDao.checkLogin(txtUsername, txtPassword);
-            if (user.getUserID() != null && user.getUserStatus().equals("active")) {
+            System.out.println("verify: "+ verify);
+            System.out.println(txtUsername);
+            System.out.println(txtPassword);
+            if (verify.equals("")) {
+                request.setAttribute("txtUsername", txtUsername);
+                request.setAttribute("error", "Please check the captcha!!");
+                 url = LOGIN_PAGE;
+            } else if (user.getUserID() != null && user.getUserStatus().equals("active")) {
                 if (user.getUserRoleID().equals("US")) {
                     request.setAttribute("txtUsername", user.getUserID());
                 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import thai.dtos.DiscountObj;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.LOGGER;
 import thai.utils.DBUtil;
 
 /**

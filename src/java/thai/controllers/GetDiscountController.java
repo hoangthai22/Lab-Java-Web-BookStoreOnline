@@ -17,9 +17,9 @@ import javax.servlet.http.HttpSession;
 import thai.daos.DiscountDAO;
 import thai.dtos.DiscountObj;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.MY_DISCOUNT_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.MY_DISCOUNT_PAGE;
 
 /**
  *

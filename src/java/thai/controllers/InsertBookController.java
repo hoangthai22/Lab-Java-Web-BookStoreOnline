@@ -24,9 +24,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import thai.daos.BookDAO;
 import thai.dtos.BookObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.HOME;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.HOME;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

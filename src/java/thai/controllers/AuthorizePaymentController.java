@@ -17,8 +17,8 @@ import thai.dtos.CartObj;
 import thai.dtos.OrderObj;
 import thai.dtos.PaymentServices;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

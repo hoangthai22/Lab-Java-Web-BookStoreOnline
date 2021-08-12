@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import thai.dtos.CartObj;
-import static thai.utils.Constant.CART_PAGE;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.CART_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

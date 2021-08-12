@@ -19,10 +19,10 @@ import thai.daos.CategoryDAO;
 import thai.dtos.BookObj;
 import thai.dtos.CategoryObj;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ADMIN_PAGE_BOOK;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.HOME_PAGE;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.ADMIN_PAGE_BOOK;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.HOME_PAGE;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

@@ -11,8 +11,8 @@ import org.apache.log4j.Logger;
  *
  * @author ASUS
  */
-public class Constant {
-    
+public class Constants {
+
     public static final String LOGIN = "LoginController";
     public static final String LOGOUT = "LogoutController";
     public static final String HOME = "HomeController";
@@ -38,9 +38,9 @@ public class Constant {
     public static final String USER_GET_ORDERDETAIL = "GetOrderDetailUserController";
     public static final String GET_DISCOUNT = "GetDiscountController";
     public static final String SEARCH_ORDER = "AdminSearchController";
+    public static final String SIGNUP = "RegistrationController";
+    public static final String VERIFY = "VerifyController";
 
-    
-    
     public static final String ERROR = "error.jsp";
     public static final String DETAIL_PAGE = "detailBook.jsp";
     public static final String REGISTER = "register.jsp";
@@ -57,5 +57,13 @@ public class Constant {
     public static final String REVIEW_PAGE = "review.jsp";
     public static final String HISTORY_DETAIL_PAGE = "orderHistoryDetail.jsp";
     public static final String MY_DISCOUNT_PAGE = "myDiscount.jsp";
-    public static final Logger LOGGER = Logger.getLogger(Constant.class);
+    public static final Logger LOGGER = Logger.getLogger(Constants.class);
+
+    /*-----------------*/
+    public static String GOOGLE_CLIENT_ID = "200689241727-8o237eoignfnd84ffo7fguljup4vlfs6.apps.googleusercontent.com";
+    public static String GOOGLE_CLIENT_SECRET = "Fgplm2J26r_vp1HMjlRfPmcs";
+    public static String GOOGLE_REDIRECT_URI = "http://localhost:8181/J3.L.P0018.TheBookStore/LoginGoogleController";
+    public static String GOOGLE_LINK_GET_TOKEN = "https://accounts.google.com/o/oauth2/token";
+    public static String GOOGLE_LINK_GET_USER_INFO = "https://www.googleapis.com/oauth2/v1/userinfo?access_token=";
+    public static String GOOGLE_GRANT_TYPE = "authorization_code";
 }

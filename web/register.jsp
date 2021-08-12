@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +18,20 @@
       
         <div id="logreg-forms">
 
-            <form class="form-signin" action="SingupController" method="post">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Đăng nhập</h1>
-                <input name="txtUser" type="text" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="">
-                <input name="txtPassword" type="password" class="form-control" placeholder="Mật khẩu" required autofocus="">
-                <input name="txtRepassword" type="password"  class="form-control" placeholder="Nhập lại Mật khẩu" required autofocus="">
-                <input name="txtFullname" type="text" class="form-control" placeholder="Họ và tên" required="" autofocus="">
+            <form class="form-signin" action="MainController"  method="post">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
+                <c:if test="${not empty requestScope.error}">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <i class="fa fa-times-circle"></i> ${requestScope.error}
+                    </div>
+                </c:if>
+                <input name="txtUserID" type="text" class="form-control" placeholder="Email" required="" autofocus="">
+                <input name="txtPassword" type="password" class="form-control" placeholder="Password" required autofocus="">
+                <input name="txtConfirmPassword" type="password"  class="form-control" placeholder="Confirm password" required autofocus="">
+                <input name="txtFullname" type="text" class="form-control" placeholder="Full name" required="" autofocus="">
+                <input name="txtPhone" type="text" class="form-control" placeholder="Phone number" required="" autofocus="">
+                <input name="txtAddress" type="text" class="form-control" placeholder="Address" required="" autofocus="">
                 <font color ="red">
                
                 </font>

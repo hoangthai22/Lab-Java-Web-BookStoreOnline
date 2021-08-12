@@ -16,9 +16,9 @@ import thai.daos.BookDAO;
 import thai.daos.CategoryDAO;
 import thai.dtos.BookObj;
 import thai.dtos.CategoryObj;
-import static thai.utils.Constant.ADMIN_PAGE_EDIT_BOOK;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
+import static thai.utils.Constants.ADMIN_PAGE_EDIT_BOOK;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
 
 /**
  *

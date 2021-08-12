@@ -19,6 +19,7 @@ public class UserObj {
     private String userRoleID;
     private String userStatus;
     private String userCreateDate;
+    private String verificationCode;
 
    
     public UserObj() {
@@ -106,6 +107,14 @@ public class UserObj {
 
     public void setUserCreateDate(String userCreateDate) {
         this.userCreateDate = userCreateDate;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
     }
     
     

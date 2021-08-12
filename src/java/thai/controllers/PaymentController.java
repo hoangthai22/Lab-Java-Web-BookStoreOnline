@@ -24,10 +24,10 @@ import thai.dtos.CartObj;
 import thai.dtos.OrderDetailObj;
 import thai.dtos.OrderObj;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.CART_PAGE;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.USER_GET_ORDER;
+import static thai.utils.Constants.CART_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.USER_GET_ORDER;
 
 /**
  *

@@ -16,9 +16,9 @@ import javax.servlet.http.HttpSession;
 import thai.daos.OrderDAO;
 import thai.dtos.OrderObj;
 import thai.dtos.UserObj;
-import static thai.utils.Constant.ERROR;
-import static thai.utils.Constant.LOGGER;
-import static thai.utils.Constant.ORDER_HISTORY_PAGE;
+import static thai.utils.Constants.ERROR;
+import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.ORDER_HISTORY_PAGE;
 
 /**
  *

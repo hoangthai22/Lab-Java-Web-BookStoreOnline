@@ -1,58 +1,60 @@
-package thai.controllers;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package thai.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import thai.daos.BookDAO;
-import thai.daos.OrderDAO;
-import thai.dtos.BookObj;
-import thai.dtos.OrderDetailObj;
-import thai.dtos.OrderObj;
+import javax.servlet.http.HttpSession;
+import thai.daos.UserDAO;
+import thai.dtos.UserObj;
 import static thai.utils.Constants.ERROR;
-import static thai.utils.Constants.HISTORY_DETAIL_PAGE;
-import static thai.utils.Constants.LOGGER;
+import static thai.utils.Constants.HOME;
+import thai.utils.GooglePojo;
+import thai.utils.GoogleUtils;
 
 /**
  *
  * @author ASUS
  */
-@WebServlet(urlPatterns = {"/GetOrderDetailUserController"})
-public class GetOrderDetailUserController extends HttpServlet {
+@WebServlet(name = "LoginGoogleController", urlPatterns = {"/LoginGoogleController"})
+public class LoginGoogleController extends HttpServlet {
 
-   
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String code = request.getParameter("code");
         String url = ERROR;
         try {
-            String orderID = request.getParameter("orderID");
-            OrderDAO dao = new OrderDAO();
-            List<OrderDetailObj> orderDetailList = dao.getOrderDetailByOrderID(orderID);
-            
-            BookDAO bookDao = new BookDAO();
-            List<BookObj> bookList = new ArrayList<>();
-            for (OrderDetailObj orderDetailObj : orderDetailList) {
-                BookObj book = bookDao.getBookById(orderDetailObj.getBookID() + "");
-                book.setBookQuantity(orderDetailObj.getAmount());
-                bookList.add(book);
+            if (code == null || code.isEmpty()) {
+                url = ERROR;
+            } else {
+                
+                String accessToken = GoogleUtils.getToken(code);
+                GooglePojo googlePojo = GoogleUtils.getUserInfo(accessToken);
+                UserDAO dao = new UserDAO();
+                UserObj dto = dao.checkLogin(googlePojo.getEmail(), "");
+                if (dto.getUserID() != null) {
+                    if (dto.getUserStatus().equals("New")) {
+                        request.setAttribute("error", "Users please complete the steps to complete registration!!");
+                    } else {
+                        HttpSession session = request.getSession();
+                        session.setAttribute("user", dto);
+                    }
+                    url = HOME;
+                } else {
+                    request.setAttribute("error", "The account does not exist!!");
+                }
             }
-            OrderObj order = dao.getOrderByID(orderID);
-            request.setAttribute("listBook", bookList);
-            request.setAttribute("order", order);
-            url = HISTORY_DETAIL_PAGE;
         } catch (Exception e) {
-            LOGGER.info("ERROR at GetOrderDetailUserController:" + e.getMessage());
             e.printStackTrace();
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
